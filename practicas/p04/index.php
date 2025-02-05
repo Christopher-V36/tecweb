@@ -155,5 +155,28 @@
         */
     ?>
 
+    <h2>Ejercicio 5</h2>
+    
+    <?php
+        $a = "7 personas";
+        $b = (integer) $a;
+        $a = "9E3";
+        $c = (double) $a;
+
+        echo '<h4>Respuesta:</h4>';
+        echo '<p>El valor de $a es: '.$a.'</p>';
+        echo '<p>El valor de $b es: '.$b.'</p>';
+        echo '<p>El valor de $c es: '.$c.'</p>';
+
+        /* PHP Tester
+            Respuesta:
+            El valor de $a es: 9E3
+
+            El valor de $b es: 7
+
+            El valor de $c es: 9000
+        */
+    ?>
+
 </body>
 </html>
