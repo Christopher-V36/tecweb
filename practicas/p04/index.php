@@ -31,5 +31,28 @@
         echo '</ul>';
     ?>
         
+    <h2>Ejercicio 2</h2>
+    
+    <?php
+        $a = "ManejadorSQL";
+        $b = 'MySQL';
+        $c = &$a;
+        
+        echo '<h4>Respuesta:</h4>';
+        echo '<p>El valor de $a es: '.$a.'</p>';
+        echo '<p>El valor de $b es: '.$b.'</p>';
+        echo '<p>El valor de $c es: '.$c.'</p>';
+        
+        $a = "PHP server";
+        $b = &$a;
+
+        echo '<p>Después de cambiar el valor de $a y asignarle &$a a $b:</p>';
+        
+        echo '<p>El valor de $a es: '.$a.'</p>';
+        echo '<p>El valor de $b es: '.$b.'</p>';
+        echo '<p>El valor de $c es: '.$c.'</p>';
+    ?>
+
+
 </body>
 </html>
