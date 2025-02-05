@@ -34,6 +34,8 @@
     <h2>Ejercicio 2</h2>
     
     <?php
+        echo '<h4>Respueta:</h4>';
+
         $a = "ManejadorSQL";
         $b = 'MySQL';
         $c = &$a;
@@ -51,8 +53,41 @@
         echo '<p>El valor de $a es: '.$a.'</p>';
         echo '<p>El valor de $b es: '.$b.'</p>';
         echo '<p>El valor de $c es: '.$c.'</p>';
+        echo '<br>';
     ?>
 
+    <h2>Ejercicio 3</h2>
+
+    <?php
+        echo '<h4>Respuesta:</h4>';
+        $a = "PHP5";
+        echo '<p>El valor de $a es: '.$a.'</p>';
+        echo '<br>';
+
+        $z[] = &$a;
+        echo '<p>El valor de $z es: '.print_r($z).'</p>';
+        echo '<br>';
+
+        $b = "5a version de PHP";
+        echo '<p>El valor de $b es: '.$b.'</p>';
+        echo '<br>';
+
+        $c = $b*10;
+        echo '<p>El valor de $c es: '.$c.'</p>';
+        echo '<br>';
+
+        $a .= $b;
+        echo '<p>El valor de $a es: '.$a.'</p>';
+        echo '<br>';
+
+        $b *= $c;
+        echo '<p>El valor de $b es: '.$b.'</p>';
+        echo '<br>';
+
+        $z[0] = "MySQL";
+        echo '<p>El valor de $z[0] es: '.$z[0].'</p>';
+        echo '<br>';
+    ?>
 
 </body>
 </html>
