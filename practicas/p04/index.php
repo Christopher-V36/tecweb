@@ -229,6 +229,20 @@
             El valor de $e: false
         */
     ?>
-
+    
+    <h2>Ejercicio 7</h2>
+    
+    <?php
+        echo '<h4>Respuesta</h4>';
+        echo 'Versión de Apache y PHP: ';  
+        echo $_SERVER['SERVER_SOFTWARE']; 
+        echo '<br>'; 
+        echo 'Nombre del sistema operativo: '; 
+        echo PHP_OS; 
+        echo '<br>';
+        echo 'Idioma del navegador (cliente): ';  
+        echo $_SERVER['HTTP_ACCEPT_LANGUAGE'];
+    ?>
+    
 </body>
 </html>
