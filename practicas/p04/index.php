@@ -121,5 +121,39 @@
         */
     ?>
 
+    <h2>Ejercicio 4</h2>
+
+    <?php
+        unset($a, $b, $c, $z);
+        $a = "PHP5"; 
+        $z[] = &$a;  
+        $b = "5a version de PHP"; 
+        @$c = $b*10; 
+        $a .= $b; 
+        @$b *= $c; 
+        $z[0] = "MySQL";
+
+        function mostrarValor(){
+            echo 'Valor de $a: ' .$GLOBALS['a'];
+            echo '<br>'; 
+            echo 'Valor de $b: ' .$GLOBALS['b'];
+            echo '<br>';
+            echo 'Valor de $c: ' .$GLOBALS['c'];
+            echo '<br>';
+            print_r($GLOBALS['z']); 
+            echo '<br>';
+        }
+        echo '<h4>Respuesta</h4>'; 
+        mostrarValor();
+
+        /* PHP Tester
+            Respuesta
+            Valor de $a: MySQL
+            Valor de $b: 250
+            Valor de $c: 50
+            Array ( [0] => MySQL )
+        */
+    ?>
+
 </body>
 </html>
