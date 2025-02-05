@@ -178,5 +178,57 @@
         */
     ?>
 
+    <h2>Ejercicio 6</h2>
+
+    <?php
+        $a = "0";
+        $b = "TRUE";
+        $c = FALSE;
+        $d = ($a OR $b);
+        $e = ($a AND $c);
+        $f = ($a XOR $b);
+
+        echo '<h4>Respuesta</h4>';
+
+        echo 'El valor de $a: '; 
+        var_dump($a); 
+        echo '<br>';
+        echo 'El valor de $b: ';
+        var_dump($b); 
+        echo '<br>';
+        echo 'El valor de $c: ';
+        var_dump($c); 
+        echo '<br>';
+        echo 'El valor de $d: ';
+        var_dump($d); 
+        echo '<br>';
+        echo 'El valor de $e: ';
+        var_dump($e); 
+        echo '<br>';
+        echo 'El valor de $f: ';
+        var_dump($f); 
+        echo '<br>';
+
+        echo '<h4> La función var_export() retorna una representación en cadena del valor para ser mostrado facilmente con un echo: </h4>'; 
+        echo 'El valor de $c: ';
+        echo var_export($c, true); 
+        echo '<br>';
+        echo 'El valor de $e: ';
+        echo var_export($e, true); 
+        echo '<br>';
+
+        /* PHP Tester
+            El valor de $a: string(1) "0"
+            El valor de $b: string(4) "TRUE"
+            El valor de $c: bool(false)
+            El valor de $d: bool(true)
+            El valor de $e: bool(false)
+            El valor de $f: bool(true)
+            La función var_export() retorna una representación en cadena del valor para ser mostrado facilmente con un echo:
+            El valor de $c: false
+            El valor de $e: false
+        */
+    ?>
+
 </body>
 </html>
