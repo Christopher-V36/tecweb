@@ -54,6 +54,23 @@
         echo '<p>El valor de $b es: '.$b.'</p>';
         echo '<p>El valor de $c es: '.$c.'</p>';
         echo '<br>';
+
+        /* PHP Tester 
+            Respuesta:
+            El valor de $a es: ManejadorSQL
+
+            El valor de $b es: MySQL
+
+            El valor de $c es: ManejadorSQL
+
+            Después de cambiar el valor de $a y asignarle &$a a $b:
+
+            El valor de $a es: PHP server
+
+            El valor de $b es: PHP server
+
+            El valor de $c es: PHP server
+        */
     ?>
 
     <h2>Ejercicio 3</h2>
@@ -62,31 +79,46 @@
         echo '<h4>Respuesta:</h4>';
         $a = "PHP5";
         echo '<p>El valor de $a es: '.$a.'</p>';
-        echo '<br>';
 
         $z[] = &$a;
         echo '<p>El valor de $z es: '.print_r($z).'</p>';
-        echo '<br>';
 
         $b = "5a version de PHP";
         echo '<p>El valor de $b es: '.$b.'</p>';
-        echo '<br>';
 
         $c = $b*10;
         echo '<p>El valor de $c es: '.$c.'</p>';
-        echo '<br>';
 
         $a .= $b;
         echo '<p>El valor de $a es: '.$a.'</p>';
-        echo '<br>';
 
         $b *= $c;
         echo '<p>El valor de $b es: '.$b.'</p>';
-        echo '<br>';
 
         $z[0] = "MySQL";
         echo '<p>El valor de $z[0] es: '.$z[0].'</p>';
-        echo '<br>';
+
+        /* PHP Tester 
+            Respuesta:
+            El valor de $a es: PHP5
+
+            Array ( [0] => PHP5 )
+            El valor de $z es: 1
+
+            El valor de $b es: 5a version de PHP
+
+
+            WARNING A non-numeric value encountered on line number 11
+            El valor de $c es: 50
+
+            El valor de $a es: PHP55a version de PHP
+
+
+            WARNING A non-numeric value encountered on line number 17
+            El valor de $b es: 250
+
+            El valor de $z[0] es: MySQL
+        */
     ?>
 
 </body>
