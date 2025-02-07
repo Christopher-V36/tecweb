@@ -33,26 +33,31 @@
 
     <h2>Ejercicio 2</h2>
     <?php
-
+        require_once __DIR__.'/src/funciones.php';
+        funcion2();
     ?>
 
     <h2>Ejercicio 3</h2>
     <?php
+        require_once __DIR__.'/src/funciones.php';
 
     ?>
 
     <h2>Ejercicio 4</h2>
     <?php
+        require_once __DIR__.'/src/funciones.php';
 
     ?>
 
     <h2>Ejercicio 5</h2>
     <?php
+        require_once __DIR__.'/src/funciones.php';
 
     ?>
 
     <h2>Ejercicio 6</h2>
     <?php
+        require_once __DIR__.'/src/funciones.php';
 
     ?>
     
