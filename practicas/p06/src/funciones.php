@@ -9,8 +9,7 @@
         }
     }
 
-    function funcion2()
-    {
+    function funcion2(){
         $matriz=[]; 
         $iteracion = 0; 
         $numeros = 0; 
@@ -24,11 +23,18 @@
         foreach($matriz as $fila){
             echo implode(", ", $fila).'<br>'; 
         }
-        echo "<h4>$numeros números obtenidos en $iteracion iteraciones.</h4>";
+        echo "<br>$numeros números obtenidos en $iteracion iteraciones.";
     }
 
-    function funcion3(){
-
+    function funcion3($num){
+        $random=-1;
+        //while(($random%$num !=0)){
+        //    $random=mt_rand(1,100);
+        //}
+        do{
+            $random=mt_rand(1,100);
+        }while(($random%$num !=0));
+        echo "El número encontrado es ".$random." y es múltiplo de ".$num;
     }
 
     function funcion4(){

@@ -40,7 +40,10 @@
     <h2>Ejercicio 3</h2>
     <?php
         require_once __DIR__.'/src/funciones.php';
-
+        if(isset($_GET['num']))
+        {
+            funcion3($_GET['num']) ;
+        }
     ?>
 
     <h2>Ejercicio 4</h2>
