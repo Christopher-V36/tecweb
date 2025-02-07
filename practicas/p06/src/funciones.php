@@ -53,8 +53,16 @@
         }echo "</table>";
     }
 
-    function funcion5(){
-
+    function funcion5($edad, $sexo){
+        if($sexo == "femenino"){
+            if($edad>=18 && $edad<=35){
+                echo "Bienvenida, usted está en el rango de edad permitido."."<br>";
+            }else{
+                echo "Su edad no se encuentra dentro del rango aceptado"."<br>";
+            }
+        }else{
+            echo "Necesita ser una persona del sexo femenino para ser aceptado"."<br>";
+        }
     }
 
     function funcion6(){

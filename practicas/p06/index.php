@@ -53,9 +53,18 @@
     ?>
 
     <h2>Ejercicio 5</h2>
+    <form action="http://localhost/tecweb/practicas/p06/" method="post">
+        Edad: <input type="text" name="edad"><br>
+        Sexo: <input type="text" name="sexo"><br>
+        <input type="submit">
+    </form>
+    <br>
     <?php
-        require_once __DIR__.'/src/funciones.php';
-
+        if(isset($_POST["edad"]) && isset($_POST["sexo"]))
+        {
+            require_once __DIR__.'/src/funciones.php';
+            funcion5($_POST["edad"],$_POST["sexo"]);
+        }
     ?>
 
     <h2>Ejercicio 6</h2>
