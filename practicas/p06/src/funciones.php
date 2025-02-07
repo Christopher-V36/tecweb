@@ -38,7 +38,19 @@
     }
 
     function funcion4(){
-
+        $arr= [];
+        for($i=97; $i<123; $i++)
+        {
+            $arr[$i]= chr($i);
+        }
+        echo "<table border='1'>";
+        echo "<tr><th>Código ASCII</th><th>Carácter</th></tr>";
+        foreach ($arr as $key => $value){
+            echo "<tr>";
+            echo "<td>$key</td>";
+            echo "<td>$value</td>";
+            echo "</tr>";
+        }echo "</table>";
     }
 
     function funcion5(){
