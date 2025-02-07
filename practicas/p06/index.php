@@ -68,9 +68,16 @@
     ?>
 
     <h2>Ejercicio 6</h2>
+    <form action="http://localhost/tecweb/practicas/p06/" method="post">
+        Buscar por matricula: <input type="text" name="matricula"><br>
+        ¿Quiere mostrar todos?: si/no <input type="text" name="todos"><br>
+        <input type="submit">
+    </form>
     <?php
-        require_once __DIR__.'/src/funciones.php';
-
+        if(isset($_POST["matricula"]) || isset($_POST["todos"])){
+            require_once __DIR__.'/src/funciones.php';
+            funcion6($_POST["matricula"],$_POST["todos"]);
+        }
     ?>
     
 </body>

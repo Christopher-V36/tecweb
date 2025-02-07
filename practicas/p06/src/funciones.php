@@ -65,7 +65,75 @@
         }
     }
 
-    function funcion6(){
+    function funcion6($matri, $todos){
+    $Listado = [
+        "ABC1234" => [
+            "Auto" => [
+                "Marca" => "Toyota",
+                "Modelo" => 2023,
+                "Tipo" => "Sedan"
+            ],
+            "Propietario" => [
+                "Nombre" => "Juan Pérez",
+                "Ciudad" => "Acapulco",
+                "Dirección" => "Avenida Costera Miguel Alemán 101"
+            ]
+        ],
+        "XYZ5664" => [
+            "Auto" => [
+                "Marca" => "Ford",
+                "Modelo" => 2021,
+                "Tipo" => "Hatchback"
+            ],
+            "Propietario" => [
+                "Nombre" => "María López",
+                "Ciudad" => "Acapulco",
+                "Dirección" => "Calle Ejido 222"
+            ]
+        ],
+        "LMN7012" => [
+            "Auto" => [
+                "Marca" => "Chevrolet",
+                "Modelo" => 2020,
+                "Tipo" => "Camioneta"
+            ],
+            "Propietario" => [
+                "Nombre" => "Carlos Ramírez",
+                "Ciudad" => "Acapulco",
+                "Dirección" => "Avenida Universidad 333"
+            ]
+        ],
+        "DEF3456" => [
+            "Auto" => [
+                "Marca" => "Nissan",
+                "Modelo" => 2022,
+                "Tipo" => "Sedan"
+            ],
+            "Propietario" => [
+                "Nombre" => "Elena Gómez",
+                "Ciudad" => "Acapulco",
+                "Dirección" => "Calle Hornos 444"
+            ]
+        ]
+    ];
 
+    if(isset($Listado[$matri]))
+    {
+        echo "La información solicitada es la siguiente <br>";
+        print_r($Listado[$matri]);
+    }else{
+        echo "No fue encontrada dicha matrícula<br>";
     }
+
+    if($todos=="si" || $todos=="Si")
+    {
+        foreach ($Listado as $matricula => $vehiculo)
+        {
+            print_r($Listado);
+        }
+    }else{
+        echo "No fue seleccionado <br>";
+    }
+}
+
 ?>
