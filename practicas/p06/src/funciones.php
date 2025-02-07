@@ -9,22 +9,22 @@
         }
     }
 
-    function funcion2(){
+    function funcion2()
+    {
         $matriz=[]; 
         $iteracion = 0; 
         $numeros = 0; 
-
         do{
             $iteracion++; 
             $fila = [rand(100,999), rand(100,999), rand(100,999)]; 
             $numeros +=3; 
-            $mtz[]=$fila; 
+            $matriz[]=$fila; 
         }while (!($fila[0]%2 !=0 && $fila[1]%2==0 && $fila[2]%2!=0)); 
 
         foreach($matriz as $fila){
             echo implode(", ", $fila).'<br>'; 
         }
-        echo "<br><h3>$numeros números obtenidos en $iteracion iteraciones.</h3>";
+        echo "<h4>$numeros números obtenidos en $iteracion iteraciones.</h4>";
     }
 
     function funcion3(){
