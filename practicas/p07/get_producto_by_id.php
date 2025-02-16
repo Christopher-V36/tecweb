@@ -8,7 +8,7 @@
 	if (!empty($id))
 	{
 		/** SE CREA EL OBJETO DE CONEXION */
-		@$link = new mysqli('localhost', 'root', 'id_php_buap', 'marketzone');
+		@$link = new mysqli('localhost', 'root', 'id_php_buap', 'marketzone');	
 
 		/** comprobar la conexión */
 		if ($link->connect_errno) 
@@ -18,7 +18,7 @@
 		}
 
 		/** Crear una tabla que no devuelve un conjunto de resultados */
-		if ( $result = $link->query("SELECT * FROM productos WHERE id = '{$id}'") ) 
+		if ( $result = $link->query("SELECT * FROM productos WHERE id = '{$id}'") )
 		{
 			$row = $result->fetch_array(MYSQLI_ASSOC);
 			/** útil para liberar memoria asociada a un resultado con demasiada información */
