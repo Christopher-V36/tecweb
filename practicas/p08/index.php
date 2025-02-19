@@ -19,7 +19,8 @@
         //$house*5;     // Invalida
         
         echo '<h4>Respuesta:</h4>';   
-    
+
+        echo '<div>';
         echo '<ul>';
         echo '<li>$_myvar es válida porque inicia con guión bajo.</li>';
         echo '<li>$_7var es válida porque inicia con guión bajo.</li>';
@@ -29,6 +30,7 @@
         echo '<li>$_element1 es válida porque inicia con guión bajo.</li>';
         echo '<li>$house*5 es inválida porque el símbolo * no está permitido.</li>';
         echo '</ul>';
+        echo '</div>';
     ?>
         
     <h2>Ejercicio 2</h2>
@@ -41,25 +43,28 @@
         $c = &$a;
         
         echo '<h4>Respuesta:</h4>';
+        echo '<div>';
         echo '<p>El valor de $a es: '.$a.'</p>';
         echo '<p>El valor de $b es: '.$b.'</p>';
         echo '<p>El valor de $c es: '.$c.'</p>';
-        
+
         $a = "PHP server";
         $b = &$a;
 
-        echo '<p>Después de cambiar el valor de $a y asignarle &$a a $b:</p>';
+        echo '<p>Después de cambiar el valor de $a y asignarle &amp;$a a $b:</p>';
         
         echo '<p>El valor de $a es: '.$a.'</p>';
         echo '<p>El valor de $b es: '.$b.'</p>';
         echo '<p>El valor de $c es: '.$c.'</p>';
-        echo '<br>';
+        echo '<br/>';
+        echo '</div>';
     ?>
 
     <h2>Ejercicio 3</h2>
 
     <?php
         echo '<h4>Respuesta:</h4>';
+        echo '<div>';
         $a = "PHP5";
         echo '<p>El valor de $a es: '.$a.'</p>';
 
@@ -80,6 +85,7 @@
 
         $z[0] = "MySQL";
         echo '<p>El valor de $z[0] es: '.$z[0].'</p>';
+        echo '</div>';
     ?>
 
     <h2>Ejercicio 4</h2>
@@ -95,14 +101,16 @@
         $z[0] = "MySQL";
 
         function mostrarValor(){
+            echo '<div>';
             echo 'Valor de $a: ' .$GLOBALS['a'];
-            echo '<br>'; 
+            echo '<br/>'; 
             echo 'Valor de $b: ' .$GLOBALS['b'];
-            echo '<br>';
+            echo '<br/>';
             echo 'Valor de $c: ' .$GLOBALS['c'];
-            echo '<br>';
+            echo '<br/>';
             print_r($GLOBALS['z']); 
-            echo '<br>';
+            echo '<br/>';
+            echo '</div>';
         }
         echo '<h4>Respuesta</h4>'; 
         mostrarValor();
@@ -118,18 +126,12 @@
         $c = (double) $a;
 
         echo '<h4>Respuesta:</h4>';
+        echo '<div>';
         echo '<p>El valor de $a es: '.$a.'</p>';
         echo '<p>El valor de $b es: '.$b.'</p>';
         echo '<p>El valor de $c es: '.$c.'</p>';
+        echo '</div>';
 
-        /* PHP Tester
-            Respuesta:
-            El valor de $a es: 9E3
-
-            El valor de $b es: 7
-
-            El valor de $c es: 9000
-        */
     ?>
 
     <h2>Ejercicio 6</h2>
@@ -144,53 +146,61 @@
 
         echo '<h4>Respuesta</h4>';
 
+        echo '<div>';
         echo 'El valor de $a: '; 
         var_dump($a); 
-        echo '<br>';
+        echo '<br/>';
         echo 'El valor de $b: ';
         var_dump($b); 
-        echo '<br>';
+        echo '<br/>';
         echo 'El valor de $c: ';
         var_dump($c); 
-        echo '<br>';
+        echo '<br/>';
         echo 'El valor de $d: ';
         var_dump($d); 
-        echo '<br>';
+        echo '<br/>';
         echo 'El valor de $e: ';
         var_dump($e); 
-        echo '<br>';
+        echo '<br/>';
         echo 'El valor de $f: ';
         var_dump($f); 
-        echo '<br>';
+        echo '<br/>';
+        echo '</div>';
 
         echo '<h4> La función var_export() retorna una representación en cadena del valor para ser mostrado facilmente con un echo: </h4>'; 
+        echo '<div>';
         echo 'El valor de $c: ';
         echo var_export($c, true); 
-        echo '<br>';
+        echo '<br/>';
         echo 'El valor de $e: ';
         echo var_export($e, true); 
-        echo '<br>';
+        echo '<br/>';
+        echo '</div>';
     ?>
     
     <h2>Ejercicio 7</h2>
     
     <?php
         echo '<h4>Respuesta</h4>';
+        echo '<div>';
         echo 'Versión de Apache y PHP: ';  
         echo $_SERVER['SERVER_SOFTWARE']; 
-        echo '<br>'; 
+        echo '<br/>'; 
         echo 'Nombre del sistema operativo: '; 
         echo PHP_OS; 
-        echo '<br>';
+        echo '<br/>';
         echo 'Idioma del navegador (cliente): ';  
         echo $_SERVER['HTTP_ACCEPT_LANGUAGE'];
+        echo '</div>';
     ?>
     
     <?php
+        echo '<div>';
         echo '<p>';
         echo '<a href="https://validator.w3.org/markup/check?uri=referer"><img
              src="https://www.w3.org/Icons/valid-xhtml11" alt="Valid XHTML 1.1" height="31" width="88" /></a>';
         echo '</p>';
+        echo '</div>';
     ?>
 </body>
 </html>
