@@ -54,23 +54,6 @@
         echo '<p>El valor de $b es: '.$b.'</p>';
         echo '<p>El valor de $c es: '.$c.'</p>';
         echo '<br>';
-
-        /* PHP Tester 
-            Respuesta:
-            El valor de $a es: ManejadorSQL
-
-            El valor de $b es: MySQL
-
-            El valor de $c es: ManejadorSQL
-
-            Después de cambiar el valor de $a y asignarle &$a a $b:
-
-            El valor de $a es: PHP server
-
-            El valor de $b es: PHP server
-
-            El valor de $c es: PHP server
-        */
     ?>
 
     <h2>Ejercicio 3</h2>
@@ -97,28 +80,6 @@
 
         $z[0] = "MySQL";
         echo '<p>El valor de $z[0] es: '.$z[0].'</p>';
-
-        /* PHP Tester 
-            Respuesta:
-            El valor de $a es: PHP5
-
-            Array ( [0] => PHP5 )
-            El valor de $z es: 1
-
-            El valor de $b es: 5a version de PHP
-
-
-            WARNING A non-numeric value encountered on line number 11
-            El valor de $c es: 50
-
-            El valor de $a es: PHP55a version de PHP
-
-
-            WARNING A non-numeric value encountered on line number 17
-            El valor de $b es: 250
-
-            El valor de $z[0] es: MySQL
-        */
     ?>
 
     <h2>Ejercicio 4</h2>
@@ -146,13 +107,6 @@
         echo '<h4>Respuesta</h4>'; 
         mostrarValor();
 
-        /* PHP Tester
-            Respuesta
-            Valor de $a: MySQL
-            Valor de $b: 250
-            Valor de $c: 50
-            Array ( [0] => MySQL )
-        */
     ?>
 
     <h2>Ejercicio 5</h2>
@@ -216,18 +170,6 @@
         echo 'El valor de $e: ';
         echo var_export($e, true); 
         echo '<br>';
-
-        /* PHP Tester
-            El valor de $a: string(1) "0"
-            El valor de $b: string(4) "TRUE"
-            El valor de $c: bool(false)
-            El valor de $d: bool(true)
-            El valor de $e: bool(false)
-            El valor de $f: bool(true)
-            La función var_export() retorna una representación en cadena del valor para ser mostrado facilmente con un echo:
-            El valor de $c: false
-            El valor de $e: false
-        */
     ?>
     
     <h2>Ejercicio 7</h2>
@@ -244,5 +186,11 @@
         echo $_SERVER['HTTP_ACCEPT_LANGUAGE'];
     ?>
     
+    <?php
+        echo '<p>';
+        echo '<a href="https://validator.w3.org/markup/check?uri=referer"><img
+             src="https://www.w3.org/Icons/valid-xhtml11" alt="Valid XHTML 1.1" height="31" width="88" /></a>';
+        echo '</p>';
+    ?>
 </body>
 </html>
