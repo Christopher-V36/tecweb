@@ -12,4 +12,6 @@
     if(!$conexion) {
         die('¡Base de datos NO conectada!');
     }
+
+    mysqli_set_charset($conexion, 'utf8mb4');
 ?>
