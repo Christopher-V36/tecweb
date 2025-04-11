@@ -7,7 +7,7 @@ use Slim\Factory\AppFactory;
 require 'vendor/autoload.php';
 
 $app = AppFactory::create();
-$app->setBasePath("/tecweb/Practicas/p17");
+$app->setBasePath("/tecweb/practicas/p17/p17");
 
 
 $app->get('/', function ($request, $response, $args) {
@@ -23,8 +23,8 @@ $app->get("/hola[/{nombre}]", function ($request, $response, $args) {
 
 $app->post("/pruebapost", function ($request, $response, $args) {
     $resPost=$request->getParsedBody();
-    $val1=$resPost["val1"];
-    $val2=$resPost["val2"];
+    $val1 = isset($resPost["val1"]) ? $resPost["val1"] : "Valor no proporcionado";
+    $val2 = isset($resPost["val2"]) ? $resPost["val2"] : "Valor no proporcionado";
     $response->getBody()->write("Valores: ". $val1." ".$val2);
     return $response;
 });
