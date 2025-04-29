@@ -14,8 +14,6 @@ $app->addRoutingMiddleware();
 $app->addErrorMiddleware(true, true, true);
 $app->setBasePath('/tecweb/practicas/p18/product_app/backend');
 
-
-
 $app->post('/product', function ($request, $response, $args){
     $prodObj = new Create('marketzone');
     $data = $request->getParsedBody(); 
@@ -24,7 +22,6 @@ $app->post('/product', function ($request, $response, $args){
     $response->getBody()->write(json_encode($prodObj->getData()));
     return $response->withHeader('Content-Type', 'application/json');
 });
-
 
 $app->put('/product', function ($request, $response, $args){
     $prodObj = new Update('marketzone');
