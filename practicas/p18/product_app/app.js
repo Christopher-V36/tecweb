@@ -6,7 +6,7 @@ $(document).ready(function(){
             let search= $('#search').val();
             if(search){
                 $.ajax({
-                    url:'http://localhost/tecweb/practicas/p17/p17/product_app/backend/public/search',
+                    url:'http://localhost/tecweb/practicas/p18/product_app/backend/public/search',  
                     type: 'POST',
                     data:{search},
                     success: function (response){
@@ -51,8 +51,6 @@ $(document).ready(function(){
         }else{
             $('#product-result').hide();
         }
-        
-       
         
     });
     $('#name').keyup(function() {
@@ -150,17 +148,15 @@ $(document).ready(function(){
             errores = true;
         }
         if (!imagen) {
-            imagen = "/tecweb/practicas/p08-base/img/imagen.png"; 
+            imagen = "/tecweb/practicas/p08/img/imagen.png"; 
         }
         
         if (errores) return;
         
-        
-        
             let postData = { nombre, precio, marca, unidades, modelo, detalles, imagen };
             
         console.log("Datos enviados:", postData);
-                const url = edit === false ? 'http://localhost/tecweb/practicas/p17/p17/product_app/backend/public/add' : 'http://localhost/tecweb/practicas/p17/p17/product_app/backend/public/edit';
+                const url = edit === false ? 'http://localhost/tecweb/practicas/p18/product_app/backend/public/add' : 'http://localhost/tecweb/practicas/p18/product_app/backend/public/edit';
                 if (edit) {
                     postData.id = id;
                 }
@@ -201,7 +197,7 @@ $(document).ready(function(){
     
     function listar(){
         $.ajax({
-            url:'http://localhost/tecweb/practicas/p17/p17/product_app/backend/public/list',
+            url:'http://localhost/tecweb/practicas/p18/product_app/backend/public/list',
             type: 'GET',
             success: function (response){
                 let productos=JSON.parse(response);
@@ -239,7 +235,7 @@ $(document).ready(function(){
             let fila = $(this).closest('tr');
             let id = fila.find('td').first().text();
             $.ajax({
-                url: `http://localhost/tecweb/practicas/p17/p17/product_app/backend/public/eliminar/${id}`,
+                url: `http://localhost/tecweb/practicas/p18/product_app/backend/public/eliminar/${id}`,
                 type: 'DELETE',
                 success: function(response) {
                     console.log("ID eliminado:", id);
@@ -273,7 +269,7 @@ $(document).ready(function(){
             let fila = $(this).closest('tr');
             let id = fila.find('td').first().text();
             edit=true;
-            $.post('http://localhost/tecweb/practicas/p17/p17/product_app/backend/public/update', {id: id}, function(response) {
+            $.post('http://localhost/tecweb/practicas/p18/product_app/backend/public/update', {id: id}, function(response) {
                 console.log("Respuesta del servidor:", response);
 
                 try {
@@ -301,6 +297,4 @@ $(document).ready(function(){
             });
         }
     });
-
-
 });

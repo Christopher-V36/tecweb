@@ -5,7 +5,7 @@ use MYAPI\DataBase;
  class Create extends DataBase {
      
     public function __construct($db) {
-        parent:: __construct('root', 'Angueles.3',$db);
+        parent:: __construct('root', 'id_php_buap',$db);
     }
     public function add($objeto){
         $this->data = array(

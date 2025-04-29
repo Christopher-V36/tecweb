@@ -11,7 +11,7 @@ require __DIR__ . '/../vendor/autoload.php';
 $app = AppFactory::create();
 $app->addRoutingMiddleware();
 $app->addErrorMiddleware(true, true, true);
-$app->setBasePath('/tecweb/practicas/p17/p17/product_app/backend/public');
+$app->setBasePath('/tecweb/practicas/p18/product_app/backend/public');
 
 
 $app->post('/add', function ($request, $response, $args){
