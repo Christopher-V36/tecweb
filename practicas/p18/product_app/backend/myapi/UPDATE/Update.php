@@ -5,7 +5,7 @@ use MYAPI\DataBase;
  class Update extends DataBase {
      
     public function __construct($db) {
-        parent:: __construct('root', 'Angueles.3',$db);
+        parent:: __construct('root', 'id_php_buap',$db);
     }
     public function edit($objeto){
         $this->data = array(
@@ -36,42 +36,6 @@ use MYAPI\DataBase;
         }
         $this->conexion->close(); 
     }
-    public function asignar($id){
-        $this->data = array(
-            'status' => 'error',
-            'message' => 'Producto no encontrado',
-            'data' => []
-        );
-        if($id) {
-            $sql = "SELECT * FROM productos WHERE id = '{$id}'";
-            $result = mysqli_query($this->conexion, $sql);
     
-            if (!$result) {
-                die('QUERY FAILED');
-            } else {
-                if ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-                    $this->data = array(
-                        'status' => 'success',
-                        'message' => 'Producto encontrado',
-                        'data' => array(
-                            array(
-                                'nombre' => $row['nombre'],
-                                'marca' => $row['marca'],
-                                'modelo' => $row['modelo'],
-                                'precio' => $row['precio'],
-                                'detalles' => $row['detalles'],
-                                'unidades' => $row['unidades'],
-                                'imagen' => $row['imagen'],
-                                'id' => $row['id'],
-                            )
-                        )
-                    );
-                }
-            }
-            // Cerrar la conexión
-            $this->conexion->close();
-        }
-        
-    }
  }
  ?>

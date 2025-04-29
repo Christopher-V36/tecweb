@@ -6,8 +6,8 @@ $(document).ready(function(){
             let search= $('#search').val();
             if(search){
                 $.ajax({
-                    url:'http://localhost/tecweb/practicas/p18/product_app/backend/public/search',  
-                    type: 'POST',
+                    url:'http://localhost:8080/tecweb/practicas/p18/product_app/backend/search',
+                    type: 'GET',
                     data:{search},
                     success: function (response){
                         let tasks=JSON.parse(response);
@@ -52,12 +52,14 @@ $(document).ready(function(){
             $('#product-result').hide();
         }
         
+       
+        
     });
     $('#name').keyup(function() {
         if($('#name').val()) {
             let name = $('#name').val();
             $.ajax({
-                url: './backend/public/search-name',
+                url: 'http://localhost:8080/tecweb/practicas/p18/product_app/backend/search-name',
                 data: { name: $('#name').val() },
                 type: 'GET',
                 success: function (response) {
@@ -153,40 +155,85 @@ $(document).ready(function(){
         
         if (errores) return;
         
+        
+        
             let postData = { nombre, precio, marca, unidades, modelo, detalles, imagen };
             
         console.log("Datos enviados:", postData);
-                const url = edit === false ? 'http://localhost/tecweb/practicas/p18/product_app/backend/public/add' : 'http://localhost/tecweb/practicas/p18/product_app/backend/public/edit';
-                if (edit) {
+                if (edit==true) {
                     postData.id = id;
-                }
-                $.post(url, postData, (response) => {
-                    console.log("Respuesta del servidor:", response);
- 
-                    try {
-                        let res = JSON.parse(response);
-                        if (res.status === "success") {
-                            $("#container").html(response).show();
-                            $("#name").val('');
-                            $("#precio").val('');
-                            $("#marca").val('');
-                            $("#unidades").val('');
-                            $("#modelo").val('');
-                            $("#detalles").val('');
-                            $("#imagen").val('');
-                            edit = false;
-                            alert(res.message);
-                            listar();
-                        } else {
-                            $("#container").html(response).show();
+                    $.ajax({
+                        url: `http://localhost:8080/tecweb/practicas/p18/product_app/backend/product`,
+                        type: 'PUT',
+                        data: JSON.stringify(postData),
+                        success: function(response) {
+                            console.log("Respuesta del servidor:", response);
+            
+                            try {
+                                let res = JSON.parse(response);
+                                if (res.status === "success") {
+                                    $("#container").html(response).show();
+                                    $("#name").val('');
+                                    $("#precio").val('');
+                                    $("#marca").val('');
+                                    $("#unidades").val('');
+                                    $("#modelo").val('');
+                                    $("#detalles").val('');
+                                    $("#imagen").val('');
+                                    edit = false;
+                                    alert(res.message);
+                                    listar();
+                                } else {
+                                    $("#container").html(response).show();
+                                }
+                            } catch (e) {
+                                console.error("Error al procesar la respuesta JSON:", e);
+                                console.log("Respuesta no JSON:", response);
+                                alert("Hubo un error al procesar la respuesta del servidor.");
+                            }
+                        },
+                        error: function(xhr, status, error) {
+                            console.error("Error en la solicitud AJAX:", error);
+                            alert("No se pudo completar la operación.");
                         }
-                    } catch (e) {
-                        console.error("Error al procesar la respuesta JSON:", e);
-                        console.log("Respuesta no JSON:", response);
-                        alert("Hubo un error al procesar la respuesta del servidor.");
-                    }
-                    
-                });
+                    });
+                }else{
+                    $.ajax({
+                        url: `http://localhost:8080/tecweb/practicas/p18/product_app/backend/product`,
+                        type: 'POST',
+                        data: postData,
+                        success: function(response) {
+                            console.log("Respuesta del servidor:", response);
+            
+                            try {
+                                let res = JSON.parse(response);
+                                if (res.status === "success") {
+                                    $("#container").html(response).show();
+                                    $("#name").val('');
+                                    $("#precio").val('');
+                                    $("#marca").val('');
+                                    $("#unidades").val('');
+                                    $("#modelo").val('');
+                                    $("#detalles").val('');
+                                    $("#imagen").val('');
+                                    edit = false;
+                                    alert(res.message);
+                                    listar();
+                                } else {
+                                    $("#container").html(response).show();
+                                }
+                            } catch (e) {
+                                console.error("Error al procesar la respuesta JSON:", e);
+                                console.log("Respuesta no JSON:", response);
+                                alert("Hubo un error al procesar la respuesta del servidor.");
+                            }
+                        },
+                        error: function(xhr, status, error) {
+                            console.error("Error en la solicitud AJAX:", error);
+                            alert("No se pudo completar la operación.");
+                        }
+                    });
+                }
             });
             $("#name, #modelo, #marca, #precio, #detalles, #unidades").blur(function() {
                 if (!edit) {
@@ -197,7 +244,7 @@ $(document).ready(function(){
     
     function listar(){
         $.ajax({
-            url:'http://localhost/tecweb/practicas/p18/product_app/backend/public/list',
+            url:'http://localhost:8080/tecweb/practicas/p18/product_app/backend/products',
             type: 'GET',
             success: function (response){
                 let productos=JSON.parse(response);
@@ -235,7 +282,7 @@ $(document).ready(function(){
             let fila = $(this).closest('tr');
             let id = fila.find('td').first().text();
             $.ajax({
-                url: `http://localhost/tecweb/practicas/p18/product_app/backend/public/eliminar/${id}`,
+                url: `http://localhost:8080/tecweb/practicas/p18/product_app/backend/product/${id}`,
                 type: 'DELETE',
                 success: function(response) {
                     console.log("ID eliminado:", id);
@@ -269,32 +316,44 @@ $(document).ready(function(){
             let fila = $(this).closest('tr');
             let id = fila.find('td').first().text();
             edit=true;
-            $.post('http://localhost/tecweb/practicas/p18/product_app/backend/public/update', {id: id}, function(response) {
-                console.log("Respuesta del servidor:", response);
-
-                try {
-                    let prod = JSON.parse(response);
-
-                    if (prod.status === "success" && prod.data.length > 0) {
-
-                        let product = prod.data[0];
-                        $('#name').val(product.nombre);
-                        $('#productId').val(product.id);
-                        $('#precio').val(product.precio);
-                        $('#unidades').val(product.unidades);
-                        $('#modelo').val(product.modelo);
-                        $('#marca').val(product.marca);
-                        $('#detalles').val(product.detalles);
-                        $('#imagen').val(product.imagen);
-                    } else {
-                        alert("Producto no encontrado o respuesta incorrecta.");
+            $.ajax({
+                url: `http://localhost:8080/tecweb/practicas/p18/product_app/backend/busq`,
+                type: 'GET',
+                data: {id: id},
+                success: function(response) {
+                    console.log("ID editado:", id);
+                    console.log("Respuesta:", response);
+    
+                    try {
+                        let prod = JSON.parse(response);
+    
+                        if (prod.status === "success" && prod.data.length > 0) {
+    
+                            let product = prod.data[0];
+                            $('#name').val(product.nombre);
+                            $('#productId').val(product.id);
+                            $('#precio').val(product.precio);
+                            $('#unidades').val(product.unidades);
+                            $('#modelo').val(product.modelo);
+                            $('#marca').val(product.marca);
+                            $('#detalles').val(product.detalles);
+                            $('#imagen').val(product.imagen);
+                        } else {
+                            alert("Producto no encontrado o respuesta incorrecta.");
+                        }
+                    } catch (e) {
+                        console.error("Error al procesar la respuesta JSON:", e);
+                        alert("Hubo un error al procesar los datos.");
                     }
-                } catch (e) {
-                    console.error("Error al procesar la respuesta JSON:", e);
-                    alert("Hubo un error al procesar los datos.");
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error en la solicitud AJAX:", error);
+                    alert("No se pudo completar la operación.");
                 }
-
             });
+
         }
     });
+
+
 });
